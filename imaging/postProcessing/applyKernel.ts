@@ -192,8 +192,7 @@ export const applyConvolutionFilter = function (
   const filteredPixelArray = convolve(imageFrame, kernel);
   const filteredImage = createFilteredImage(
     loadedImage,
-    filteredPixelArray as unknown as number[],
-    filterName
+    filteredPixelArray as unknown as number[]
   );
   return generateImage ? filteredImage : filteredPixelArray;
 };
@@ -207,28 +206,16 @@ export const applyConvolutionFilter = function (
  */
 export const createFilteredImage = function (
   loadedImage: Image,
-  filteredPixelArray: number[],
-  filterName?: string
+  filteredPixelArray: number[]
 ): Partial<Image> {
   const { minPixelValue, maxPixelValue } =
     getMinMaxPixelValue(filteredPixelArray);
 
   const filteredImage: Partial<Image> = {
+    ...loadedImage,
     color: false,
-    columns: loadedImage.columns,
-    rows: loadedImage.rows,
-    width: loadedImage.width,
-    height: loadedImage.height,
-    imageId: loadedImage.imageId + "_" + (filterName ?? "filtered"),
-    maxPixelValue,
     minPixelValue,
-    windowWidth: loadedImage.windowWidth,
-    windowCenter: loadedImage.windowCenter,
-    sizeInBytes: loadedImage.sizeInBytes,
-    render: loadedImage.render,
-    slope: loadedImage.slope,
-    intercept: loadedImage.intercept,
-    invert: loadedImage.invert,
+    maxPixelValue,
     getPixelData: function () {
       return filteredPixelArray;
     }
@@ -326,11 +313,7 @@ export const applyGaussianBlur = function (
     imageFrame,
     kernel
   ) as unknown as number[];
-  return createFilteredImage(
-    loadedImage,
-    filteredPixelArray,
-    "gaussian_kernelSize" + kernelSize + "_strength" + strength
-  );
+  return createFilteredImage(loadedImage, filteredPixelArray);
 };
 
 /**
@@ -358,9 +341,5 @@ export const applySharpening = function (
     imageFrame,
     kernel
   ) as unknown as number[];
-  return createFilteredImage(
-    loadedImage,
-    filteredPixelArray,
-    "sharpen_kernelSize" + kernelSize + "_strength" + strength
-  );
+  return createFilteredImage(loadedImage, filteredPixelArray);
 };
