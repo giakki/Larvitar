@@ -10,8 +10,9 @@ module.exports = merge(commonConfiguration, {
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: "larvitar.js",
-    library: "larvitar",
-    libraryTarget: "umd",
+    library: {
+      type: "module"
+    },
     clean: true
   },
   mode: "production",
@@ -19,5 +20,8 @@ module.exports = merge(commonConfiguration, {
   optimization: {
     minimize: false, // Disable minification for easier debugging
     usedExports: false // Disable tree shaking
+  },
+  experiments: {
+    outputModule: true
   }
 });

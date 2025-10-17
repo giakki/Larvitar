@@ -56,7 +56,7 @@ import type {
 } from "./types";
 import RotateTool from "./custom/rotateTool";
 import GspsTool from "./custom/gspsTool";
-import { SVGCursorDescriptor } from "@cornerstonejs/tools/dist/esm/types";
+import { SVGCursorDescriptor } from "@cornerstonejs/tools/types";
 const BASE_CURSOR: SVGCursorDescriptor = {
   iconContent: "",
   iconSize: 16,
@@ -1163,13 +1163,13 @@ function extend(
  * Register a custom tool cursor
  * @param {String} toolName - The name of the tool
  * @param {string} iconContent - The tool class
- * @param {CursorOptions} cursorOptions - tthe  cursor options 
-  ex. 
+ * @param {CursorOptions} cursorOptions - tthe  cursor options
+  ex.
       const iconContent = `
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
             <image href="data:image/svg+xml;base64,${measurementBase64}" width="30" height="30" style="filter: invert(100%);"/>
           </svg>
-        `; 
+        `;
       const cursorOptions = {
         iconSize: 30,
         mousePoint: { x: 15, y: 15 },

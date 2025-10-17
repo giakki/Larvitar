@@ -46,6 +46,7 @@ import {
 import { logger } from "../logger";
 import { convertMetadata } from "./imageParsing";
 import { DataSet } from "dicom-parser";
+import { CalibrationTypes } from "@cornerstonejs/core/enums";
 
 const MAX_CONCURRENCY = 32;
 
@@ -484,7 +485,8 @@ export const loadAndCacheMetadata = (
   } else if (Array.isArray(pixelSpacing) && pixelSpacing.length === 2) {
     calibratedPixelSpacingMetadataProvider.add(imageId3D, {
       rowPixelSpacing: pixelSpacing[0],
-      columnPixelSpacing: pixelSpacing[1]
+      columnPixelSpacing: pixelSpacing[1],
+      type: CalibrationTypes.UNKNOWN
     });
   }
 };

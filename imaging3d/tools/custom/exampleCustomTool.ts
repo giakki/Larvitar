@@ -6,7 +6,7 @@ import {
   utilities,
   Viewport
 } from "@cornerstonejs/core";
-import * as EventTypes from "@cornerstonejs/tools/dist/esm/types/EventTypes";
+import * as EventTypes from "@cornerstonejs/tools/types/EventTypes";
 
 // Todo: should move to configuration
 const DEFAULT_MULTIPLIER = 4;

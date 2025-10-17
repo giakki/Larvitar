@@ -14,7 +14,7 @@ export type {
   Point2,
   Point3,
   ICamera
-} from "@cornerstonejs/core/dist/esm/types";
+} from "@cornerstonejs/core/types";
 
 // Tool system types
 export type {
@@ -27,11 +27,11 @@ export type {
   TextBoxHandle,
   ToolHandle,
   ToolProps
-} from "@cornerstonejs/tools/dist/esm/types";
+} from "@cornerstonejs/tools/types";
 
-export type { Handles } from "@cornerstonejs/tools/dist/esm/types/AnnotationTypes";
+export type { Handles } from "@cornerstonejs/tools/types/AnnotationTypes";
 
-export type { ROICachedStats } from "@cornerstonejs/tools/dist/esm/types/ToolSpecificAnnotationTypes";
+export type { ROICachedStats } from "@cornerstonejs/tools/types/ToolSpecificAnnotationTypes";
 
 // Larvitar-specific mapped types
 export type MprViewport = {
